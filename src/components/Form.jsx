@@ -1,18 +1,5 @@
 import React, { useState } from 'react'
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography'
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import Button from '@mui/material/Button';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
+import { Box, Container, Typography, TextField, Grid, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Button, MenuItem, Select } from '@mui/material';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -44,13 +31,26 @@ export default function Form() {
 
     const saveData = () => {
         setsave([...save, data]);
+        setData({
+            name:"",
+            contactNumber:"",
+            contactCode:"",
+            otp:"",
+            email:"",
+            dob:null,
+            pob:"",
+            gender:"",
+        })
     }
+
+    console.log(data,"see-data");
+    console.log(save,"see-all-save-data");
 
   return (
     <Container maxWidth="md">
         <Grid container spacing={2}>
             <Grid item xs={12}>
-                <Typography py={8} textAlign={"right"} variant="body1" sx={{color:"purple"}}>Create Your Account With Divine Connection</Typography>
+                <Typography py={8} textAlign={"center"} variant="body1" sx={{color:"purple"}}>Create Your Account With Divine Connection</Typography>
             </Grid>
 
             <Grid item xs={12}>
@@ -71,12 +71,12 @@ export default function Form() {
                         value={data?.contactCode} 
                         onChange={(e) => handleChange("contactCode",e.target.value)}
                         >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        <MenuItem value={"+91"}>+91</MenuItem>
+                        <MenuItem value={"+1"}>+1</MenuItem>
+                        <MenuItem value={"+44"}>+44</MenuItem>
                         </Select>
                     </FormControl>
-                    <TextField id="standard-basic" variant="outlined" size='small' value={data?.contactNumber} onChange={(e) => handleChange("contactNumber",e.target.value)}/>
+                    <TextField id="standard-basic" type='number' variant="outlined" size='small' value={data?.contactNumber} onChange={(e) => handleChange("contactNumber",e.target.value)}/>
 
                     </Box>
                 </Box>
