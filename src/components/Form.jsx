@@ -5,6 +5,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
+import CountryPhoneCodes from './CountryPhoneCodes';
 
 export default function Form() {
     // for storing the data of form
@@ -59,8 +60,9 @@ export default function Form() {
                     <TextField id="standard-basic" variant="outlined" size='small' value={data?.name} onChange={(e) => handleChange("name",e.target.value)}/>
                 </Box>
             </Grid>
+            <CountryPhoneCodes data={data} handleChange={handleChange}/>
 
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
                 <Box display={"flex"} alignItems={"end"} gap={2}>
                     <Typography variant="body1" color="initial">Contact No: </Typography>
                     <Box>
@@ -80,7 +82,7 @@ export default function Form() {
 
                     </Box>
                 </Box>
-            </Grid>
+            </Grid> */}
 
             <Grid item xs={12}>
                 <Box display={"flex"} alignItems={"end"} gap={2}>
@@ -163,7 +165,6 @@ export default function Form() {
                 }}>Edit</Button>
             </Grid>
 
-            
         </Grid>
     </Container>
   )
